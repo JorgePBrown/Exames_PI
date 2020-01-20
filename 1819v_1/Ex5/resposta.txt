@@ -1,0 +1,5 @@
+GET /artists/search?name=:name&limit=:limit
+
+[
+    name1, name2, name3, ..., nameX
+]

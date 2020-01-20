@@ -1,0 +1,28 @@
+
+[3] Para a aplicação B4 desenvolvida durante as aulas, foram definidos os seguintes endpoints para manipulação dos
+grupos de livros ( bundles ). Para cada endpoint comente a decisão tomada, justificando se a considera correta e, em
+caso negativo, apresente uma proposta alternativa.
+
+a. Obter os detalhes de um grupo - GET /bundles/getDetails/:bundleId
+
+    Passar a ser só GET /bundles/:bundleId para seguir o padrão REST
+
+b. Obter todos os grupos - GET /bundles/getAll
+
+    GET /bundles
+
+c. Criar um novo grupo - GET /bundles/create/:bundleId
+
+    POST /bundles/:bundleId. Se for idempotente usar o método PUT
+
+d. Remover um grupo - GET /bundles/delete/:bundleId
+
+    DELETE /bundles/:bundleId
+
+e. Adicionar um livro a um grupo - GET /bundles/addBook/:bundleId/:bookId
+
+    POST /bundles/:bundleId/:bookId. Se for idempotente usar o método PUT
+
+f. Remover um livro a um grupo - GET /bundles/deleteBook/:bundleId/:bookId
+
+    DELETE /bundles/:bundleId/:bookId. Também se poderia usar o método PUT mas penso que DELETE seria mais correto.

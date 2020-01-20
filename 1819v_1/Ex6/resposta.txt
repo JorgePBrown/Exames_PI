@@ -1,0 +1,1 @@
+O browser só irá fazer um pedido GET se mudar a path, o host ou a query string da página.

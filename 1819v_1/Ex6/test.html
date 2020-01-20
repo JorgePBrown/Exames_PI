@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <button id="btn">Click Me!</button>
+        <input id="txt" type="text"/>
+
+        <script>
+            window.addEventListener('load', () => {
+                document.querySelector('#btn').addEventListener('click', () => {
+                    const loc = document.querySelector('#txt').value
+
+                    window.location = loc
+                })
+            })
+        </script>
+    </body>
+
+</html>

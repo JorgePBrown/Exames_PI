@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+
+    </head>
+
+    <body>
+
+        <input type="text" id="artists"/>
+
+        <div class="hiddenAutoComplete" id="suggestions"></div>
+
+        <script>
+            // 5.2
+
+function getArtistsNames(nameStart, resultCount) {
+    return fetch(`/artists/search?name=${nameStart}&limit=${resultCount}`).then(res => res.json())
+}
+
+
+// 5.3
+
+window.addEventListener('load', () => {
+    const input = document.querySelector('#artists')
+
+    input.addEventListener('input', async (event) => {
+        const autoCompleteDiv = document.querySelector('#suggestions')
+
+        const text = event.target.value
+
+        console.log(`New input = ${text}`);
+
+        if (text.length > 3) {
+
+            const artists = await getArtistsNames(text, 10)
+
+            let newHtml = artists.reduce((acc, cur) => {
+                acc += `<div class="artistSuggestion">${cur}</div>`
+                return acc
+            }, '')
+
+            autoCompleteDiv.innerHTML = newHtml
+
+            document.querySelectorAll('div.artistSuggestion').forEach(div => div.addEventListener('click', fillInput))
+
+            function fillInput(event) {
+                input.value = event.target.innerHTML
+            }
+
+            autoCompleteDiv.classList.replace('hiddenAutoComplete', 'visibleAutoComplete')
+        } else {
+            autoCompleteDiv.classList.replace('visibleAutoComplete', 'hiddenAutoComplete')
+        }
+    })
+})
+        </script>
+    </body>
+
+</html>
