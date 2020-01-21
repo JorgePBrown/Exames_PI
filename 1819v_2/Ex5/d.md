@@ -1,0 +1,3 @@
+## Assumindo esta nova funcionalidade que possibilita a existência de várias músicas numa playlist se esta assim o suportar, descreva as alterações teriam que ser realizadas ao modelo de dados que representa uma playlist, e que alterações teriam que ser realizadas ao método de yama-service que edita os dados de uma playlist.
+
+O método que edita os dados de uma playlist agora deve receber mais um parâmetro para editar o novo valor(allowDuplicates). O modelo de dados não precisaria de mudar. Talvez apenas o modelo de dados de Song para acrescentar um contador. Se esta mudança não acontecesse, então os objetos Playlist deixariam de poder usar mapas para guardar as músicas e sim um array ou uma lista.
