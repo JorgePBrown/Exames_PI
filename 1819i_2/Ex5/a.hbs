@@ -1,0 +1,33 @@
+<table>
+    <tr>
+        {{#each headings}}
+            <th>{{this}}</th>
+        {{/each}}
+    </tr>
+    {{#each items}}
+        <tr>
+            {{#each row}}
+                <td>
+                    {{this}}
+                </td>
+            {{/each}}
+        </tr>
+    {{/each}}
+</table>
+
+<!--
+
+{
+    headings: Array<String>,
+    items: [
+        {
+            row: Array<String>
+        },
+        {
+            row: Array<String>
+        },
+        ...        
+    ]
+}
+
+-->
